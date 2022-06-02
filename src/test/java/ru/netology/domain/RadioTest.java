@@ -37,6 +37,7 @@ public class RadioTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldChangeStation3() {
 
@@ -178,4 +179,5 @@ public class RadioTest {
 
         assertEquals(expected, actual);
     }
+
 }
