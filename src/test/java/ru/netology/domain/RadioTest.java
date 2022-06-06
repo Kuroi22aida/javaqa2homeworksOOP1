@@ -206,9 +206,9 @@ public class RadioTest {
 
     @Test
     void nextStation4() {
-        Radio rad = new Radio();
+        Radio rad = new Radio(20);
 
-        rad.setCurrentStation(10);
+        rad.setCurrentStation(9);
 
         rad.nextStation();
 
