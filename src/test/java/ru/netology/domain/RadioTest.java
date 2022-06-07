@@ -195,12 +195,12 @@ public class RadioTest {
     }
 
     @Test
-    void setMaxStation() {
+    void nextStation3() {
         Radio rad = new Radio();
-        rad.setCurrentStation(15);
+        rad.setCurrentStation(8);
         rad.nextStation();
         int actual = rad.getCurrentStation();
-        int expected = 1;
+        int expected = 9;
         assertEquals(expected, actual);
     }
 
@@ -208,12 +208,25 @@ public class RadioTest {
     void nextStation4() {
         Radio rad = new Radio(20);
 
-        rad.setCurrentStation(9);
+        rad.setCurrentStation(20);
 
         rad.nextStation();
 
         int actual = rad.getCurrentStation();
         int expected = 0;
+
+        assertEquals(expected, actual);
+    }
+    @Test
+    void nextStation5() {
+        Radio rad = new Radio(20);
+
+        rad.setCurrentStation(15);
+
+        rad.nextStation();
+
+        int actual = rad.getCurrentStation();
+        int expected = 16;
 
         assertEquals(expected, actual);
     }

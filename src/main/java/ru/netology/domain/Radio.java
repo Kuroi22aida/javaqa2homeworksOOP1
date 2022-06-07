@@ -2,7 +2,6 @@ package ru.netology.domain;
 
 public class Radio {
     private int minStation;
-    private int maxStation = 9;
     private int numberOfStations = 10;
     private int currentStation;
     private int minVolume;
@@ -20,7 +19,7 @@ public class Radio {
         if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > maxStation) {
+        if (newCurrentStation > numberOfStations) {
             return;
         }
         currentStation = newCurrentStation;
@@ -32,7 +31,7 @@ public class Radio {
 
     public void nextStation() {
         currentStation = currentStation + 1;
-        if (currentStation > maxStation) {
+        if (currentStation > numberOfStations) {
             currentStation = minStation;
         }
         int newCurrentStation = currentStation;
@@ -42,7 +41,7 @@ public class Radio {
     public void previousStation() {
         currentStation = currentStation - 1;
         if (currentStation < minStation) {
-            currentStation = maxStation;
+            currentStation = numberOfStations;
         }
         int newCurrentStation = currentStation;
         setCurrentStation(newCurrentStation);
