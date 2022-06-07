@@ -214,7 +214,7 @@ class RadioTest {
         rad.nextStation();
 
         int actual = rad.getCurrentStation();
-        int expected = 0;
+        int expected = 10;
 
         assertEquals(expected, actual);
     }
