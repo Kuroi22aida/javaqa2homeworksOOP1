@@ -30,7 +30,7 @@ public class Radio {
         if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > numberOfStations) {
+        if (newCurrentStation > numberOfStations - 1) {
             return;
         }
         currentStation = newCurrentStation;
