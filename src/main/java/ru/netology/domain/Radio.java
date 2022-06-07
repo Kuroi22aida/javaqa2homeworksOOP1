@@ -42,7 +42,7 @@ public class Radio {
 
     public void nextStation() {
         currentStation = currentStation + 1;
-        if (currentStation > numberOfStations) {
+        if (currentStation > numberOfStations - 1) {
             currentStation = minStation;
         }
         int newCurrentStation = currentStation;
@@ -52,7 +52,7 @@ public class Radio {
     public void previousStation() {
         currentStation = currentStation - 1;
         if (currentStation < minStation) {
-            currentStation = numberOfStations;
+            currentStation = numberOfStations - 1;
         }
         int newCurrentStation = currentStation;
         setCurrentStation(newCurrentStation);

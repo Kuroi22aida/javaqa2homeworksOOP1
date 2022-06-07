@@ -77,7 +77,7 @@ class RadioTest {
         rad.nextStation();
 
         int actual = rad.getCurrentStation();
-        int expected = 9;
+        int expected = 0;
 
         assertEquals(expected, actual);
     }
@@ -91,7 +91,7 @@ class RadioTest {
         rad.previousStation();
 
         int actual = rad.getCurrentStation();
-        int expected = 9;
+        int expected = 8;
 
         assertEquals(expected, actual);
     }
