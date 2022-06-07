@@ -1,31 +1,36 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
+    private int minStation;
+    private int numberOfStations = 10;
     private int currentStation;
+    private int minVolume;
+    private int maxVolume = 100;
+    private int currentVolume;
 
-    public void nextStation() {
-        currentStation = currentStation + 1;
-        if (currentStation == 10) {
-            currentStation = 0;
-        }
-        int newCurrentStation = currentStation;
-        setCurrentStation(newCurrentStation);
+    public Radio(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
     }
 
-    public void previousStation() {
-        currentStation = currentStation - 1;
-        if (currentStation == -1) {
-            currentStation = 9;
-        }
-        int newCurrentStation = currentStation;
-        setCurrentStation(newCurrentStation);
-    }
 
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
+        if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > numberOfStations - 1) {
             return;
         }
         currentStation = newCurrentStation;
@@ -35,13 +40,30 @@ public class Radio {
         return currentStation;
     }
 
-    private int currentVolume;
+    public void nextStation() {
+        currentStation = currentStation + 1;
+        if (currentStation > numberOfStations - 1) {
+            currentStation = minStation;
+        }
+        int newCurrentStation = currentStation;
+        setCurrentStation(newCurrentStation);
+    }
+
+    public void previousStation() {
+        currentStation = currentStation - 1;
+        if (currentStation < minStation) {
+            currentStation = numberOfStations - 1;
+        }
+        int newCurrentStation = currentStation;
+        setCurrentStation(newCurrentStation);
+    }
+
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
-        if (newCurrentVolume > 10) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
         currentVolume = newCurrentVolume;
@@ -52,13 +74,13 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
     }
